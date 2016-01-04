@@ -28,7 +28,6 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
         .state('cache-usage',      { url: '/app/cache/usage',    templateUrl: 'templates/cache-usage.html',    controller:'CacheUsageCtrl'  })
         .state('cache-offline',    { url: '/app/cache/offline',  templateUrl: 'templates/cache-offline.html',  controller:'CacheOfflineCtrl'  })
         .state('cache-passive',    { url: '/app/cache/passive',  templateUrl: 'templates/cache-passive.html',  controller:'CachePassiveCtrl'  })
-        .state('cache-address',    { url: '/app/cache/address',  templateUrl: 'templates/cache-address.html',  controller:'CacheAddressCtrl'  })
         .state('cache-nearby',     { url: '/app/cache/nearby',   templateUrl: 'templates/cache-nearby.html',   controller:'CacheNearbyCtrl'  });
 })
 .constant('SiteConfigGlobals', {
