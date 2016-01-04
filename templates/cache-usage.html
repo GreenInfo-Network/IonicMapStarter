@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-withtext ion-chevron-left" ui-sref="cache">Back</button>
+            </div>
+            <h1 class="title">Cache Storage</h1>
+            <div class="buttons">
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padded center">
+            <p>
+                This shows how much storage space is used by the offline map cache.
+            </p>
+            <p class="bold">
+                {{ viewdata.cachemegs }} MB<br/>
+                {{ viewdata.cachetiles }} files<br/>
+            </p>
+            <button class="button button-full button-assertive" ng-click="emptyCache()">Clear Cache</button>
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

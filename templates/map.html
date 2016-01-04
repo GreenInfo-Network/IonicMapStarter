@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-withtext ion-chevron-left" ng-click="backButton()">Back</button>
+            </div>
+            <h1 class="title">{{ viewdata.title }}</h1>
+            <div class="buttons">
+                <button class="button button-icon button-clear ion-pinpoint" ng-show="viewdata.park" ng-click="zoomToDestination()"></button>
+                &nbsp; &nbsp;
+                <button class="button button-icon button-clear ion-location" ng-show="viewdata.markers.youarehere.lat && viewdata.markers.youarehere.lng && viewdata.markers.youarehere.insideCalifornia" ng-click="zoomToMyLocation()"></button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content overflow-scroll="true" data-tap-disabled="true">
+            <leaflet width="100%" height="100%" defaults="viewdata.options" maxbounds="viewdata.maxbounds" bounds="viewdata.bounds" layers="viewdata.layers" markers="viewdata.markers" controls="viewdata.controls" popup="viewdata.popup"></leaflet>
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

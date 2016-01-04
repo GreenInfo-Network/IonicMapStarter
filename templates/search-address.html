@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-clear ion-navicon" ui-sref="menu"></button>
+            </div>
+            <h1 class="title">Address Search</h1>
+            <div class="buttons">
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padded center">
+
+            <label class="item item-input" focus-me><input type="text" ng-model="viewdata.address" placeholder="enter address" ng-keypress="keypressAddressBox($event);" /></label>
+            <button class="button button-full button-balanced" ng-click="doSearch();">Search</button>
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

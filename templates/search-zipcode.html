@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-clear ion-navicon" ui-sref="menu"></button>
+            </div>
+            <h1 class="title">Search By ZIP Code</h1>
+            <div class="buttons">
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padded">
+
+            <label class="item item-input" focus-me><input type="number" min="0" max="99999" step="1" ng-model="viewdata.zipcode" placeholder="enter zip code" ng-change="updateSuggestions();" ng-keypress="keypressZipcodeBox($event);" /></label>
+            <button class="button button-full button-balanced" ng-click="doSearch();" ng-hide="viewdata.suggestions.length > 0">Search</button>
+
+            <ion-list ng-show="viewdata.suggestions.length > 0">
+                <ion-item ng-repeat="zipcode in viewdata.suggestions" ng-click="selectZipcode(zipcode);">{{ zipcode }}</ion-item>
+            </ion-list>
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

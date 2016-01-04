@@ -1,0 +1,144 @@
+/*
+ * GLOBAL STUFF SUCH AS THE FONT
+ */
+body {
+    font-family: sans-serif;
+    font-size:9pt;
+}
+
+/*
+ * GENERAL UTILITY CLASSES
+ */
+.right  { text-align: right; }
+.left   { text-align: left; }
+.center { text-align: center; }
+.bold   { font-weight: bold; }
+.italic { font-style: italic; }
+.alert  { background-color:yellow; color:red; }
+.large  { font-size:125%; }
+.bottompad { margin-bottom:0.5em; }
+
+
+/*
+ * TYPES OF BUTTONS IN THE HEADER BAR
+ *  .button-withtext -- buttons whose icon should not be so large and which icons should align to the text they contain
+ */
+ion-header-bar button.button-withtext {
+}
+ion-header-bar button.button-withtext:before {
+    font-size: 1em !important;
+    line-height: 2em !important;
+    padding-right: 5px !important;
+}
+
+
+/*
+ * MENUS
+ * a ion-list with right-facing chevrons
+ */
+ion-item i.icon.ion-chevron-right {
+    float:right;
+}
+ion-item a.item-content {
+    padding-right:20px !important;
+}
+
+
+/*
+ * LEAFLET CONTROLS
+ */
+div.leaflet-control-layers {
+    white-space: nowrap;
+}
+
+
+/*
+ * LEAFLET POPUP BUBBLES
+ */
+div.leaflet-popup-content-wrapper {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+}
+div.leaflet-popup-content-wrapper div.leaflet-popup-content {
+    margin: 0;
+}
+div.leaflet-popup-content-wrapper div.leaflet-popup-content a.leaflet-popup-close-button {
+}
+div.leaflet-popup-content-wrapper div.leaflet-popup-content h4 {
+    background-color:black;
+    color:white;
+
+    padding-left:0.5em;
+    padding-right:1em;
+    white-space: nowrap;
+    overflow:hidden;
+}
+div.leaflet-popup-content-wrapper div.leaflet-popup-content div {
+    padding-left:1em;
+    padding-right:1em;
+}
+div.leaflet-popup-content-wrapper div.leaflet-popup-content a {
+    font-weight:bold;
+}
+.leaflet-container a.leaflet-popup-close-button {
+    top: 0.5em;
+}
+
+/*
+ * IONIC OVERRIDES subclasses of ionic-content to allow for padding, for edge-to-edge, etc
+ */
+ion-content.padded {
+    padding:1em 1em 1em 1em;
+}
+
+
+/*
+ * IONIC OVERRIDES for text inputs
+ */
+input[type="text"],input[type="number"] {
+    border:1px solid #ccc;
+    text-align: center;
+    display:inline;
+    width:90%;
+}
+
+.item-input {
+    padding:0 0 0 0;
+}
+
+
+/*
+ * IONIC OVERRIDES for search results listing
+ */
+span.item-note {
+    background-color:#F0F0F0;
+    color:black;
+    padding:3px 5px 3px 5px;
+    border-radius:4px;
+}
+
+
+/*
+ * IONIC OVERRIDES for loading spinner
+ */
+.loading-container .loading {
+    background-color: rgba(255,255,255,0.0)
+}
+.backdrop {
+    background-color: rgba(255,255,255,0.9);
+}
+
+
+/*
+ * IONIC OVERRIDES for popups (not map popups)
+ */
+.popup-head {
+    background-color: #444;
+}
+.popup-title {
+    color: #fff;
+}
+.popup {
+    border:2px solid #444;
+}

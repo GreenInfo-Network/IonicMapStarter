@@ -1,0 +1,28 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-withtext ion-chevron-left" ng-click="backButton()">Back</button>
+            </div>
+            <h1 class="title">Search Options</h1>
+            <div class="buttons">
+                <button class="button button-icon button-clear ion-map" ui-sref="map"></button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content>
+            <div class="list">
+                <a class="item item-icon-left" href="#/app/search-nearby"><i class="icon ion-pinpoint"></i> Search Near You</a>
+                <a class="item item-icon-left" href="#/app/search-address"><i class="icon ion-home"></i> Search By Address</a>
+                <a class="item item-icon-left" href="#/app/search-city"><i class="icon ion-location"></i> Search By City</a>
+                <a class="item item-icon-left" href="#/app/search-zipcode"><i class="icon ion-email"></i> Search By ZIP Code</a>
+                <a class="item item-icon-left" href="#/app/search-name"><i class="icon ion-search"></i> Search By Park Name</a>
+                <a class="item item-icon-left" href="#/app/map"><i class="icon ion-map"></i> Browse The Map</a>
+                <a class="item item-icon-left" href="#/app/cache"><i class="icon ion-android-download"></i> Offline Maps</a>
+                <a class="item item-icon-left" href="#/app/about"><i class="icon ion-information-circled"></i> About ParkInfo</a>
+            </div>
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

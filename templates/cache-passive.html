@@ -1,0 +1,28 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-withtext ion-chevron-left" ui-sref="cache">Back</button>
+            </div>
+            <h1 class="title">Passive Caching</h1>
+            <div class="buttons">
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padded center">
+
+            <p>
+                Passive caching will automatically save map content to your device as you browse the map, so you can use it in Offline Mode. This can consume a lot of device storage if left enabled for long periods.
+            </p>
+
+            <button class="button button-full button-assertive" ng-click="passiveToggle()">{{ viewdata.passive ? 'Passive Caching is Enabled' : 'Passive Caching is Disabled' }}</button>
+
+            <div ng-show="viewdata.passive" class="bold">
+                Passive caching is enabled. As you browse the map, map content will be saved to your device automatically, so you may use it in Offline Mode.
+            </div>
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>

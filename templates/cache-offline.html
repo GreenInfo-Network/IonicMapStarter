@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-pane>
+
+        <ion-header-bar class="bar-stable">
+            <div class="buttons">
+                <button class="button button-icon button-withtext ion-chevron-left" ui-sref="cache">Back</button>
+            </div>
+            <h1 class="title">Offline Map Cache</h1>
+            <div class="buttons">
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padded center">
+
+            <h3>Offline Mode</h3>
+            <p>
+                You can download portions of the map onto your device, allowing the map to function when you do not have signal.
+            </p>
+
+            <button class="button button-full button-assertive" ng-click="offlineToggle()">{{ viewdata.offline ? 'Current mode: Offline' : 'Current mode: Online' }}</button>
+
+            <div ng-show="viewdata.offline" class="bold">
+                You are in offline mode.<br/>The map will show cached content where available.
+            </div>
+            <div ng-hide="viewdata.offline" class="bold">
+                You are in online mode.<br/>The map will load content from the map services when available.
+            </div>
+
+        </ion-content>
+
+    </ion-pane>
+</ion-view>
