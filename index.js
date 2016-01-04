@@ -67,12 +67,20 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
                     attribution: 'Base map by <a href="javascript:void(0);" onClick="window.cordova.InAppBrowser.open(\'http://www.greeninfo.org/\', \'_system\');">GreenInfo Network</a><br/>Parks data by <a href="javascript:void(0);" onClick="cordova.InAppBrowser.open(\'http://www.calands.org/\', \'_system\');">CPAD</a>'
                 }
             },
-            Bing: {
+            BingAerial: {
                 name: 'Bing Aerial',
                 type: 'bing',
                 key: "AjBuYw8goYn_CWiqk65Rbf_Cm-j1QFPH-gGfOxjBipxuEB2N3n9yACKu5s8Dl18N",
                 layerOptions: {
                     type: 'AerialWithLabels'
+                }
+            },
+            BingRoads: {
+                name: 'Bing Roads',
+                type: 'bing',
+                key: "AjBuYw8goYn_CWiqk65Rbf_Cm-j1QFPH-gGfOxjBipxuEB2N3n9yACKu5s8Dl18N",
+                layerOptions: {
+                    type: 'Roads'
                 }
             }
         },
