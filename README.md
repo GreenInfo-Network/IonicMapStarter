@@ -1,6 +1,6 @@
 # IonicMapStarter
 
-https://github.com/gregallensworth/IonicMapStarter
+https://github.com/greeninfo/IonicMapStarter
 
 Jumpstart your Ionic map-based apps with this starter template.
 
