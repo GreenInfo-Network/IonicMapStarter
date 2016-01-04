@@ -12,7 +12,7 @@ A minimal but functional, standalone mobile app from which to build your own cre
 Using Ionic CLI, you should be able to "ionic start" using this repo directly:
 
 ```
-ionic start -i com.example.yourapp -a "Your App Name" -t https://github.com/gregallensworth/IonicMapStarter YourAppFolder
+ionic start -i com.example.yourapp -a "Your App Name" -t https://github.com/greeninfo/IonicMapStarter YourAppFolder
 ```
 
 After initializing your Ionic app, add platforms and plugins as needed for your own development. Typically you will want at least these, in addition to the several that Ionic installs by default:
