@@ -29,13 +29,7 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
         .state('cache-offline',    { url: '/app/cache/offline',  templateUrl: 'templates/cache-offline.html',  controller:'CacheOfflineCtrl'  })
         .state('cache-passive',    { url: '/app/cache/passive',  templateUrl: 'templates/cache-passive.html',  controller:'CachePassiveCtrl'  })
         .state('cache-address',    { url: '/app/cache/address',  templateUrl: 'templates/cache-address.html',  controller:'CacheAddressCtrl'  })
-        .state('cache-nearby',     { url: '/app/cache/nearby',   templateUrl: 'templates/cache-nearby.html',   controller:'CacheNearbyCtrl'  })
-        .state('results',          { url: '/app/results',        templateUrl: 'templates/results.html',        controller:'ResultsCtrl'  })
-        .state('search-city',      { url: '/app/search-city',    templateUrl: 'templates/search-city.html',    controller:'SearchCityCtrl' })
-        .state('search-address',   { url: '/app/search-address', templateUrl: 'templates/search-address.html', controller:'SearchAddressCtrl' })
-        .state('search-nearby',    { url: '/app/search-nearby',  templateUrl: 'templates/search-nearby.html',  controller:'SearchNearbyCtrl' })
-        .state('search-zipcode',   { url: '/app/search-zipcode', templateUrl: 'templates/search-zipcode.html', controller:'SearchZipcodeCtrl' })
-        .state('search-name',      { url: '/app/search-name',    templateUrl: 'templates/search-name.html',    controller:'SearchNameCtrl' });
+        .state('cache-nearby',     { url: '/app/cache/nearby',   templateUrl: 'templates/cache-nearby.html',   controller:'CacheNearbyCtrl'  });
 })
 .constant('SiteConfigGlobals', {
     //
