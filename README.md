@@ -15,15 +15,12 @@ Using Ionic CLI, you should be able to "ionic start" using this repo directly:
 ionic start -i com.example.yourapp -a "Your App Name" -t https://github.com/gregallensworth/IonicMapStarter YourAppFolder
 ```
 
-After initializing your Ionic app, add platforms and plugins as needed for your own development. Typically you will want at least these:
+After initializing your Ionic app, add platforms and plugins as needed for your own development. Typically you will want at least these, in addition to the several that Ionic installs by default:
 
 ```
 ionic platform add android
 ionic platform add ios
 
-ionic plugin add cordova-plugin-whitelist
-ionic plugin add ionic-plugin-keyboard
-ionic plugin add cordova-plugin-device
 ionic plugin add cordova-plugin-geolocation
 ionic plugin add cordova-plugin-file
 ionic plugin add cordova-plugin-file-transfer
