@@ -69,7 +69,7 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
             BingAerial: {
                 name: 'Bing Aerial',
                 type: 'bing',
-                key: "AjBuYw8goYn_CWiqk65Rbf_Cm-j1QFPH-gGfOxjBipxuEB2N3n9yACKu5s8Dl18N",
+                key: "YOUR_BING_API_KEY_HERE",
                 layerOptions: {
                     type: 'AerialWithLabels'
                 }
@@ -77,7 +77,7 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
             BingRoads: {
                 name: 'Bing Roads',
                 type: 'bing',
-                key: "AjBuYw8goYn_CWiqk65Rbf_Cm-j1QFPH-gGfOxjBipxuEB2N3n9yACKu5s8Dl18N",
+                key: "YOUR_BING_API_KEY_HERE",
                 layerOptions: {
                     type: 'Road'
                 }
