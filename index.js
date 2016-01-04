@@ -233,21 +233,29 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
     };
 
     // utility functions regarding Lat-Lng points, what's nearby, their range to other LatLng points...
-    $rootScope.isLatLngWithinBounds = function (lat, lng) {
+
+    // is the given lat & lng within the bounding area defined in SiteConfigGlobals?
+    $rootScope.isLatLngWithinMaxBounds = function (lat, lng) {
         var bbox = L.latLngBounds([[ SiteConfigGlobals.bbox_s, SiteConfigGlobals.bbox_w ], [ SiteConfigGlobals.bbox_n, SiteConfigGlobals.bbox_e ]]);
         return bbox.contains( L.latLng([lat,lng]) );
     };
+
+    // return the distance in meters between two lat & lng points
     $rootScope.distanceBetweenLatLng = function (origin_lat, origin_lng, target_lat, target_lng) {
         // distance in meters
         return  L.latLng([ origin_lat, origin_lng ]).distanceTo( L.latLng([ target_lat, target_lng ]) );
     };
+
+    // return the distance between two lat & lng pairs, in miles and with text labeling
     $rootScope.distanceWording = function (meters) {
         var miles = (meters / 1609.34).toFixed(1) + ' ' + 'mi';
         return miles;
     };
+
+    // return the heading compass direction a starting lat-lng to a target lat-lng, e.g. "N" or "SW"
     $rootScope.headingBetweenLatLng = function (origin_lat, origin_lng, target_lat, target_lng) {
         return L.latLng([ origin_lat, origin_lng ]).bearingWordTo( L.latLng([ target_lat, target_lng ]) );
-    };    
+    };
 })
 .run(function($rootScope, $timeout, $ionicPlatform, $cordovaFile, $cordovaFileTransfer, SiteConfigGlobals) {
     //

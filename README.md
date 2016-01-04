@@ -51,7 +51,7 @@ If you're building for iOS, enable all orientations by adding this into _config.
 
 Replace _resources/splash.png_ and _resources/icon.png_ with your own images, then run _ionic resources_ to build your new set of icons and splash screens. You may want to follow up by checking the image folders in your file explorer's thumbnail mode; sometimes it misses one.
 
-Edit _index.js_ and set the initial area of the map, which is also the bounding box used by isLatLngWithinBounds()
+Edit _index.js_ and set the initial area of the map, which is also the bounding box used by isLatLngWithinMaxBounds() and pick out what basemap options you want to use, and add your own basemap options.
 
 
 # Ionic's Official Map Temlpate
