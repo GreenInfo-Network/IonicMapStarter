@@ -28,6 +28,30 @@ ionic plugin add cordova-plugin-inappbrowser
 ```
 
 
+# Next Steps
+
+Now you're on your own, writing your Ionic app your way. But some steps come up a lot, so you may want to just knock them off now so you can focus on your application instead of these details.
+
+Edit _config.xml_ to set your app's name, author attribution, initial version number, etc.
+
+Edit _config.xml_ and add these two lines to enable Internet access.
+
+```
+  <allow-navigation href="*" />
+  <allow-intent href="*" />
+```
+
+If you're building for iOS, enable all orientations by adding this into _config.xml_:
+
+```
+  <platform name="ios">
+    <preference name="Orientation" value="all"/>
+  </platform>
+```
+
+Replace _resources/splash.png_ and _resources/icon.png_ with your own images, then run _ionic resources_ to build your new set of icons and splash screens. You may want to follow up by checking the image folders in your file explorer's thumbnail mode; sometimes it misses one.
+
+
 # Ionic's Official Map Temlpate
 
 Ionic does have an official map starter template, which deserves a word.
