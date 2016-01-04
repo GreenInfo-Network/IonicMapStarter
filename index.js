@@ -62,7 +62,6 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
                 type: 'xyz',
                 layerOptions: {
                     urlOnlineMode: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    subdomains: '1234',
                     errorTileUrl:'img/nodata_tile.png',
                     attribution: '&copy; <a href="javascript:void(0);" onClick="window.cordova.InAppBrowser.open(\'http://www.openstreetmap.org/copyright/\', \'_system\');">OpenStreetMap contributors</a>'
                 }
