@@ -28,21 +28,6 @@ ionic plugin add cordova-plugin-inappbrowser
 ```
 
 
-# Customizing Your App
-
-* Check out _config.xml_ to start personalizing your app: the name and author attribution, etc. You'll also need to do this in iOS via Xcode.
-
-* Customize _index.html_ and _index.js_ to describe the layout of your app.
-
-* Create new controllers under the *controllers* folder and new views under the *templates* folder, to match the layout you described in index.html and index.js
-
-* Check out _library.js_ for a bunch of $rootScope functions that are quite useful, e.g. wrappers to open a directions service, or to open a browser, auto-detecting your platform.
-
-* Swap out splash screens and icons. Replace resources/icon.png and resources/splash.png and run *ionic resources*
-
-And now it's *your* app. Enjoy!
-
-
 # Ionic's Official Map Temlpate
 
 Ionic does have an official map starter template, which deserves a word.
