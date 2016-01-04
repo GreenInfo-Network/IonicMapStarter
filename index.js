@@ -80,7 +80,7 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
                 type: 'bing',
                 key: "AjBuYw8goYn_CWiqk65Rbf_Cm-j1QFPH-gGfOxjBipxuEB2N3n9yACKu5s8Dl18N",
                 layerOptions: {
-                    type: 'Roads'
+                    type: 'Road'
                 }
             }
         },
