@@ -50,21 +50,21 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
     max_zoom: 16,
     min_zoom: 4,
 
-    // what map layers exist in the map? this will be copied into the leafletData, but is here for reference since we may want to know the names of layers
-    // e.g. that offline tile cache thing
-    // structure is per the angualr-leaflet-directive library
-    // except for cache:true being added to a XYZ layer to enable it for tile caching
+    // what map layers exist in the map? this will be copied into the leafletData, but is here for reference
+    // since we something other than MapCtrl may want to know the names of layers e.g. the offline tile cache components
+    // the structure used here is per the angular-leaflet-directive library
+    // except for the addition of urlOnlineMode which is the same as the 'url' and is used to inform the system that this basemap can be cached
     mapLayers: {
         baselayers: {
-            ParkInfo: {
-                name: 'ParkInfo',
-                url: 'http://tilestache-cdn-{s}.greeninfo.org/tilestache/tilestache.py/parkinfo_withlabels/{z}/{x}/{y}.jpg',
+            OSM: {
+                name: 'OSM',
+                url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 type: 'xyz',
                 layerOptions: {
-                    urlOnlineMode: 'http://tilestache-cdn-{s}.greeninfo.org/tilestache/tilestache.py/parkinfo_withlabels/{z}/{x}/{y}.jpg',
+                    urlOnlineMode: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                     subdomains: '1234',
                     errorTileUrl:'img/nodata_tile.png',
-                    attribution: 'Base map by <a href="javascript:void(0);" onClick="window.cordova.InAppBrowser.open(\'http://www.greeninfo.org/\', \'_system\');">GreenInfo Network</a><br/>Parks data by <a href="javascript:void(0);" onClick="cordova.InAppBrowser.open(\'http://www.calands.org/\', \'_system\');">CPAD</a>'
+                    attribution: '&copy; <a href="javascript:void(0);" onClick="window.cordova.InAppBrowser.open(\'http://www.openstreetmap.org/copyright/\', \'_system\');">OpenStreetMap contributors</a>'
                 }
             },
             BingAerial: {
