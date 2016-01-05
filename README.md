@@ -51,7 +51,9 @@ If you're building for iOS, enable all orientations by adding this into _config.
 
 Replace _resources/splash.png_ and _resources/icon.png_ with your own images, then run _ionic resources_ to build your new set of icons and splash screens. You may want to follow up by checking the image folders in your file explorer's thumbnail mode; sometimes it misses one.
 
-Edit _index.js_ and set the initial area of the map, which is also the bounding box used by isLatLngWithinMaxBounds() and pick out what basemap options you want to use, and add your own basemap options.
+Edit _index.js_ and set the initial area of the map, which is also the bounding box used by isLatLngWithinMaxBounds() and pick out what basemap options you want to use, and add your own basemap options. Bing requires an API key but has very liberal terms of use, while Google Maps has tighter terms of use but does not require an API key. Of course, you can suply your own basemaps from Mapbox or the like.
+
+Unless you will be using both Bing and Google APIs, you may want to remove Bing and/or Google <script> tags from _index.html_ in order to speed up loading and reduce memory usage.
 
 
 # Ionic's Official Map Temlpate

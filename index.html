@@ -22,7 +22,6 @@
         <link rel="stylesheet" type="text/css" href="lib/leaflet-0.7.7/leaflet.css">
         <script type="text/javascript" src="lib/leaflet-0.7.7/leaflet-src.js"></script>
         <script type="text/javascript" src="lib/leaflet-angular.js"></script>
-        <script type="text/javascript" src="lib/leaflet-bing.js"></script>
         <script type="text/javascript" src="lib/leaflet-extensions.js"></script>
         <script type="text/javascript">
             // the default of 300 cuts off even reasonably-sized titles; let them get long enough for some park names at a good font size
@@ -30,6 +29,13 @@
 
             L.Control.Attribution.prototype.options.prefix = '<a href="http://leafletjs.com/">Leaflet</a> map framework';
         </script>
+
+        <!-- Bing basemap options -->
+        <script type="text/javascript" src="lib/leaflet-bing.js"></script>
+
+        <!-- Google Maps basemap options -->
+        <script src="http://maps.google.com/maps/api/js?v=3&sensor=false"></script>
+        <script type="text/javascript" src="lib/leaflet-google.js"></script>
 
         <!-- Google Analytics -->
         <script type="text/javascript">

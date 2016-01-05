@@ -81,6 +81,21 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
                 layerOptions: {
                     type: 'Road'
                 }
+            },
+            GoogleTerrain: {
+                name: 'Google Terrain',
+                layerType: 'TERRAIN',
+                type: 'google'
+            },
+            GoogleHybrid: {
+	        name: 'Google Hybrid',
+	        layerType: 'HYBRID',
+	        type: 'google'
+	    },
+            GoogleRoadmap: {
+                name: 'Google Streets',
+                layerType: 'ROADMAP',
+                type: 'google'
             }
         },
         overlays: {
