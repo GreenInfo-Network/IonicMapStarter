@@ -39,10 +39,10 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
     // the bounding box of California, which is also a geocode biasing box
     // and also the starting view of the map
     // and also the "your latlng is outside Calfiornia" bounding box
-    bbox_s:   31,
-    bbox_w: -126,
-    bbox_n:   44,
-    bbox_e: -112,
+    bbox_s:  -90,
+    bbox_w: -180,
+    bbox_n:   90,
+    bbox_e:  180,
 
     // the min & max zoom of the map
     // tip: the caching system has a maximum depth as well, so we don't download level 18 for 100 square miles; it's wise to make this max the same as the cache's max
