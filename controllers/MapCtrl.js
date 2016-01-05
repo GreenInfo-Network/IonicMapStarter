@@ -41,7 +41,7 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
         },
         markers: {
             youarehere: { // a marker for the user's own location
-                lat: 0,
+                lat: 90,
                 lng: 0,
                 icon: {
                     iconUrl: 'img/marker-gps.png',
@@ -52,7 +52,7 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
                 insideCalifornia: true // not a Leaflet thing
             },
             destination: { // a marker for some unspecified point of interest, for you to program
-                lat: 0,
+                lat: 90,
                 lng: 0,
                 icon: {
                     iconUrl: 'img/marker-target.png',
