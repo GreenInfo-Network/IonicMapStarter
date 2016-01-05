@@ -4,7 +4,7 @@ https://github.com/greeninfo/IonicMapStarter
 
 Jumpstart your Ionic map-based apps with this starter template.
 
-A minimal but functional, standalone mobile app from which to build your own creations.
+A minimal but functional, standalone mobile app from which to build your own creations. In a few minutes your app will have basemaps from Google Maps, Bing Maps, OSM and other tile services, will have panels for navigating the app, and will support caching tiles onto your device so the map can be browsed offline.
 
 
 # Getting Started
@@ -64,8 +64,10 @@ Ionic does have an official map starter template, which deserves a word.
 
 This template has only one page, and a sidemenu-based slide-in menu on the left. It has a few shortcomings and inflexibilities, which IonicMapStarter addresses:
 * It has only one single panel and a sidemenu. If you want to switch to another panel, no mechanism is provided; sidemenu really does restrict you in that regard.
+* When you switch panels Leaflet misbehaves and malfunctions (the old "hdden DIV" problem). IonicMapStarter works around that.
 * IonicMapStarter supports buttons in both the top-right and top-left corners, and these are customized in each view. Sidemenu hogs the top-left corner, and doesn't allow you to place an icon in the top-right.
 * It uses Google Maps which has usage restrictions and other potential concerns for your use case. This uses Leaflet so you're without restriction, but also provides working code for Bing Maps and Google Maps.
+* IonicMapStarter adds caching of tiles for offline use, as well as a UI for intentionally caching areas of the map. This can be extended to cache around an address, to cache the region of a park, etc.
 
 This isn't to disparage the fabulous work that is Ionic, of course! But it demonstrates that for your use case one or the other may be preferable.
 
