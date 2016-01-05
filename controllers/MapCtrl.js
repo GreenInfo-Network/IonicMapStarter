@@ -158,7 +158,7 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
     // passive map caching
     // as they browse the map, save the tiles on disk so they can switch to offline mode
     leafletData.getLayers().then(function(allLeafletLayers) {
-        function saveTileLoadEventToCache(event) { $rootScope.saveLoadedTileToCache(event,'ParkInfo'); }
-        allLeafletLayers.baselayers.ParkInfo.on('tileload', saveTileLoadEventToCache);
+        function saveTileLoadEventToCache(event) { $rootScope.saveLoadedTileToCache(event,'OSM'); }
+        allLeafletLayers.baselayers.OSM.on('tileload', saveTileLoadEventToCache);
     });
 });
