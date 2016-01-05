@@ -48,7 +48,7 @@ angular.module('app', ['ionic', 'ngCordova', 'leaflet-directive'])
     // tip: the caching system has a maximum depth as well, so we don't download level 18 for 100 square miles; it's wise to make this max the same as the cache's max
     //      so we don't get a goofy situation of claiming to have cached an area, but not to the entire depth available
     max_zoom: 16,
-    min_zoom: 4,
+    min_zoom: 2,
 
     // what map layers exist in the map? this will be copied into the leafletData, but is here for reference
     // since we something other than MapCtrl may want to know the names of layers e.g. the offline tile cache components
