@@ -6,7 +6,7 @@
 
 angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, $rootScope, $cordovaGeolocation, leafletData) {
     // default map view
-    // a location watch will pan the map as well, and focusing a park via focusedResult will center the map as well
+    // a location watch will pan the map
     $scope.viewdata = {
         title: '',
         layers: SiteConfigGlobals.mapLayers,
@@ -80,7 +80,7 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
                 layerobj = allLeafletLayers.baselayers[bname];
                 if (! layerobj.options.urlOnlineMode) continue;
 
-                url = isNowOffline ? window.cordova.file.dataDirectory + "ParkInfo-{z}-{x}-{y}.png" : layerobj.options.urlOnlineMode;
+                url = isNowOffline ? window.cordova.file.dataDirectory + bname + "-{z}-{x}-{y}.png" : layerobj.options.urlOnlineMode;
                 layerobj.setUrl(url);
             }
 
@@ -88,7 +88,7 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
                 layerobj = allLeafletLayers.overlays[oname];
                 if (! layerobj.options.urlOnlineMode) continue;
 
-                url = isNowOffline ? window.cordova.file.dataDirectory + "ParkInfo-{z}-{x}-{y}.png" : layerobj.options.urlOnlineMode;
+                url = isNowOffline ? window.cordova.file.dataDirectory + oname + "-{z}-{x}-{y}.png" : layerobj.options.urlOnlineMode;
                 layerobj.setUrl(url);
             }        
         });
@@ -133,36 +133,6 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
         }); 
     });
 
-    // if our park of interest changes, zoom the map
-    // this would typically happen only if someone clicked a search result, and thus wanted to go to the map
-    // but could happen from other reasons they'd want to zoom to a park, e.g. a popup bubble on the map
-    // tip: the usual race condition hack, that if we just came into this view the map DIV may not in fact be visible on screen and will malfunction if you change its state, see issue #43
-    $scope.viewdata.park = null;
-    $rootScope.$watch('focusedResult', function (newData) {
-        $scope.viewdata.park = newData;
-
-        if (newData) {
-            $scope.viewdata.bounds.southWest.lat = $scope.viewdata.park.s;
-            $scope.viewdata.bounds.southWest.lng = $scope.viewdata.park.w;
-            $scope.viewdata.bounds.northEast.lat = $scope.viewdata.park.n;
-            $scope.viewdata.bounds.northEast.lng = $scope.viewdata.park.e;
-        }
-
-        if (newData) {
-            $scope.viewdata.title = $scope.viewdata.park.name;
-        } else {
-            $scope.viewdata.title = "Map";
-        }
-
-        if (newData) {
-            $scope.viewdata.markers.destination.lat = $scope.viewdata.park.lat;
-            $scope.viewdata.markers.destination.lng = $scope.viewdata.park.lng;
-        } else {
-            $scope.viewdata.markers.destination.lat = 0;
-            $scope.viewdata.markers.destination.lng = 0;
-        }
-    });
-
     // click the map for an infobubble
     // doesn't need to zoom the map or anything; the popup bubble will have a zoom link if they really do want to disrupt their map view
     $scope.$on('leafletDirectiveMap.click', function (leafletDirectiveEvent, eventTarget) {
@@ -170,82 +140,10 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
         $scope.getInfoAtLatLng(latlng.lat, latlng.lng);
     });
     $scope.getInfoAtLatLng = function (lat, lng) {
-        var url    = 'https://websites.greeninfo.org/parkinfo/mobile/query_latlng.php';
-        var params = {
-            lat: lat,
-            lng: lng,
-        };
-        var options = {
-            showSpinner: false
-        };
-
-        $scope.getJSON(url, params, options, function (info) {
-            if (! info) return; // nothing here, that's no crime
-
-            // set this park to be the Focused Park
-            // this will propagate back down to this controller, updating the markers and the map title, etc.
-            // yay for a consistent format for what is a Park, right?
-            $rootScope.focusedResult = info;
-
-            // put the marker anchor wherever they clicked; for this use case we know it's contained within a park, and this actually allows them to "move" the popup if it's obscuring the page
-            // compose HTML for the popup
-
-            var html = '';
-            html +='<span>';
-                html += '<h4>{{ viewdata.park.name }}</h4>';
-                html += '<div>{{ viewdata.park.acres|number }} acres</div>';
-                html += '<div>{{ viewdata.park.manager }}</div>';
-                if (info.url) {
-                    html += '<br/>';
-                    html += '<div><a href="javascript:void(0);" ng-click="openWebsiteForFocusedPark();">Website</a></div>';
-                }
-                html += '<br/>';
-                html += '<div><a href="javascript:void(0);" ng-click="getDirectionsToFocusedPark()">Directions</a></div>';
-                html += '<br/>';
-            html +='</span>';
-
-            $scope.viewdata.popup.html = html;
-            $scope.viewdata.popup.lat = info.lat;
-            $scope.viewdata.popup.lng = info.lng;
-            $scope.viewdata.popup.visible = true;
-        });
+        console.log(['clicked the map', lat, lng ]);
     };
 
-    // for the park-info popup bubbles, handlers for clicking the Website, Directions, etc.
-    $scope.getDirectionsToFocusedPark = function () {
-        // Google Analytics
-        ga('send', 'event', 'parkinfo', 'directions');
-
-        if ($scope.viewdata.park && $scope.viewdata.park.closest_lat && $scope.viewdata.park.closest_lng) {
-            $rootScope.openDirectionsToLatLng($scope.viewdata.park.closest_lat, $scope.viewdata.park.closest_lng, $scope.viewdata.park.name, $scope.viewdata.my_lat, $scope.viewdata.my_lng);
-        }
-        else if ($scope.viewdata.park && $scope.viewdata.park.lat && $scope.viewdata.park.lng) {
-            $rootScope.openDirectionsToLatLng($scope.viewdata.park.lat, $scope.viewdata.park.lng, $scope.viewdata.park.name, $scope.viewdata.my_lat, $scope.viewdata.my_lng);
-        }
-        else {
-            // this should never happen but handle it anyway
-            $scope.showMessageModal("No Park Selected", "Please select a park, by clicking the map or running a search.");
-        }
-    };
-    $scope.openWebsiteForFocusedPark = function () {
-        // Google Analytics
-        ga('send', 'event', 'parkinfo', 'website');
-
-        if ($scope.viewdata.park && $scope.viewdata.park.url) {
-            $rootScope.openURL($scope.viewdata.park.url);
-        } else {
-            // this should never happen but handle it anyway
-            $scope.showMessageModal("No Park Selected", "Please select a park, by clicking the map or running a search.");
-        }
-    };
-
-    // the buttons for zooming the map to your location or to the Focused Park
-    $scope.zoomToDestination = function () {
-        $scope.viewdata.bounds.southWest.lat = $scope.viewdata.park.s;
-        $scope.viewdata.bounds.southWest.lng = $scope.viewdata.park.w;
-        $scope.viewdata.bounds.northEast.lat = $scope.viewdata.park.n;
-        $scope.viewdata.bounds.northEast.lng = $scope.viewdata.park.e;
-    };
+    // the button for zooming the map to your location
     $scope.zoomToMyLocation = function () {
         if ($scope.viewdata.markers.youarehere.lat && $scope.viewdata.markers.youarehere.lng) {
             var buffer = 0.01; // 1.0 = 55ish miles   0.1 = 5.5 miles   0.01 = .5  miles
