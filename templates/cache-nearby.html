@@ -21,11 +21,11 @@
                     <button class="button button-full button-assertive">Finding your location</button>
                 </div>
 
-                <div ng-show="viewdata.my_lat && viewdata.my_lng && ! viewdata.insideCalifornia">
-                    <button class="button button-full button-assertive">Not In California</button>
+                <div ng-show="viewdata.my_lat && viewdata.my_lng && ! viewdata.insideAllowedArea">
+                    <button class="button button-full button-assertive">Outside Supported Area</button>
                 </div>
 
-                <div ng-show="viewdata.my_lat && viewdata.my_lng && viewdata.insideCalifornia">
+                <div ng-show="viewdata.my_lat && viewdata.my_lng && viewdata.insideAllowedArea">
                     <button class="button button-full button-balanced" ng-click="startCaching();">Begin Caching Nearby</button>
                 </div>
 
