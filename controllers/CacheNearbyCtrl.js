@@ -7,7 +7,7 @@ angular.module('app').controller('CacheNearbyCtrl', function($scope, $rootScope,
         // the lat/lng/ok status for whether they can be allowed to start a download series
         my_lat: null,
         my_lng: null,
-        insideCalifornia: null,
+        insideAllowedArea: null,
         // the download progress
         // if they are both null then no download is in progress; during a download series they'll at least be 0 which is non-null; thus we can know "in progress" status
         progress_done: null,
@@ -26,7 +26,7 @@ angular.module('app').controller('CacheNearbyCtrl', function($scope, $rootScope,
     var positionOK = function (position) {
         $scope.viewdata.my_lat = position.coords.latitude;
         $scope.viewdata.my_lng = position.coords.longitude;
-        $scope.viewdata.insideCalifornia = $rootScope.isLatLngWithinBounds($scope.viewdata.my_lat,$scope.viewdata.my_lng);
+        $scope.viewdata.insideAllowedArea = $rootScope.isLatLngWithinMaxBounds($scope.viewdata.my_lat,$scope.viewdata.my_lng);
     };
     var positionFail = function () {
         // didn't get a location
@@ -50,7 +50,7 @@ angular.module('app').controller('CacheNearbyCtrl', function($scope, $rootScope,
         $scope.viewdata.progress_done  = null;
     };
     $scope.startCaching = function () {
-        if (! $scope.viewdata.insideCalifornia || ! $scope.viewdata.my_lat || ! $scope.viewdata.my_lng) return false; // should not happen since UI is hidden
+        if (! $scope.viewdata.insideAllowedArea || ! $scope.viewdata.my_lat || ! $scope.viewdata.my_lng) return false; // should not happen since UI is hidden
 
         var downloads = $rootScope.generateTileListingFromLatLng($scope.viewdata.my_lat, $scope.viewdata.my_lng);
         $scope.viewdata.progress_total = downloads.length;
