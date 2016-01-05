@@ -156,9 +156,34 @@ angular.module('app').controller('MapCtrl', function($scope, SiteConfigGlobals, 
     };
 
     // passive map caching
-    // as they browse the map, save the tiles on disk so they can switch to offline mode
+    // once the map is ready, add tileload event handlers to all candidate layers
+    // as a tile is loaded, save the tiles on disk so the user can switch to offline mode
+    // saveLoadedTileToCache() will check that passive-caching mode in in fact enabled
     leafletData.getLayers().then(function(allLeafletLayers) {
-        function saveTileLoadEventToCache(event) { $rootScope.saveLoadedTileToCache(event,'OSM'); }
-        allLeafletLayers.baselayers.OSM.on('tileload', saveTileLoadEventToCache);
+        var layerobj;
+
+        for (var bname in allLeafletLayers.baselayers) {
+            layerobj = allLeafletLayers.baselayers[bname];
+            if (! layerobj.options.urlOnlineMode) continue;
+
+            (function () {
+                var layername = bname;
+                layerobj.on('tileload', function (event) {
+                    $rootScope.saveLoadedTileToCache(event,layername);
+                });
+            })();
+        }
+
+        for (var oname in allLeafletLayers.overlays) {
+            layerobj = allLeafletLayers.overlays[oname];
+            if (! layerobj.options.urlOnlineMode) continue;
+
+            (function () {
+                var layername = oname;
+                layerobj.on('tileload', function (event) {
+                $rootScope.saveLoadedTileToCache(event,layername);
+                });
+            })();
+        }
     });
 });
