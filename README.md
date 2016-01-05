@@ -56,7 +56,18 @@ Edit _index.js_ and set the initial area of the map, which is also the bounding 
 Unless you will be using both Bing and Google APIs, you may want to remove Bing and/or Google <script> tags from _index.html_ in order to speed up loading and reduce memory usage.
 
 
-# Ionic's Official Map Temlpate
+# The Bits and Pieces
+
+This app brings together a few other libraries, and it's only right to mention them.
+
+* Ionic framework. http://ionicframework.com/
+* Leaflet. http://leafletjs.com/
+* Bing Maps and shamrov's Bing-Leaflet plugin. https://github.com/shramov/leaflet-plugins
+* Google Maps and shamrov's Google-Leaflet plugin. https://github.com/shramov/leaflet-plugins
+* angular-leaflet-directive by tombatossals, but this is a modified version to support popups and bounds. https://github.com/tombatossals/angular-leaflet-directive
+
+
+# Ionic's Official Map Template
 
 Ionic does have an official map starter template, which deserves a word.
 
