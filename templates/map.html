@@ -7,9 +7,7 @@
             </div>
             <h1 class="title">{{ viewdata.title }}</h1>
             <div class="buttons">
-                <button class="button button-icon button-clear ion-pinpoint" ng-show="viewdata.park" ng-click="zoomToDestination()"></button>
-                &nbsp; &nbsp;
-                <button class="button button-icon button-clear ion-location" ng-show="viewdata.markers.youarehere.lat && viewdata.markers.youarehere.lng && viewdata.markers.youarehere.insideCalifornia" ng-click="zoomToMyLocation()"></button>
+                <button class="button button-icon button-clear ion-location" ng-show="viewdata.markers.youarehere.lat && viewdata.markers.youarehere.lng" ng-click="zoomToMyLocation()"></button>
             </div>
         </ion-header-bar>
 
